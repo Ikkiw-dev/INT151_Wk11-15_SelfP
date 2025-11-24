@@ -9,4 +9,13 @@ async function loadQuotes() {
         alert (error)
     }
 }
-export { loadQuotes }
+
+// delete qoutes
+async function deleteQuote() {
+    try {
+        const removeId = deleteItem(quoteURL, id)
+    } catch (error) {
+        alert(`Quote: ${error}`)
+    }
+}
+export { loadQuotes, deleteQuote }

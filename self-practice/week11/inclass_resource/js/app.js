@@ -33,6 +33,17 @@ function createCard(quote) {
   return card;
 }
 
+function handleDelete(e) {
+  const removeId = e.target.dataset.id
+  const answer = confirm(`Do you want to delete quotes : ${removeId}`)
+  if (answer) {
+    // 1. delete quote in the backend
+    // 2. find remove quote div element
+    // 3. delete quote div element 
+
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const quoteList = document.getElementById("quoteList");
   const quotes = await loadQuotes();
