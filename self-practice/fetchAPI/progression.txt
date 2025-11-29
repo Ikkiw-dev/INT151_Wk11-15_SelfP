@@ -1,0 +1,9 @@
+self practice : FETCH API (extensions)
+
+สำหรับ self practice directory นี้ ได้เรียนรู้จาก external เพื่อเสริมความเข้าใจเรื่อง FETCH API มีความสมบูรณ์มากขึ้น
+โดยรูปแบบการเขียน promise จะเป็น .then() และได้ทำดังต่อไปนี้
+
+1. implement tailwindcss เข้ามาใช้ เพื่อทำให้ หน้า web สวยมากขึ้น
+2. การรู้จักการ fetch โดยได้ลองตั้งแต่รูปแบบที่ fetch มาจาก text ตรงๆ และ add events ไปที่ button นั้น เพื่อทำการ display ออกมา โดย apply เรื่องของ DOM มาใช้งานมากขึ้น เพื่อให้ element ที่เราต้องการนั้น มาแสดงที่หน้า web
+3. การทดลองทำการ fetch จาก API public open source (https://jsonplaceholder.typicode.com/posts)
+4. การเอา data ต่างๆ ไปขึ้นที่หน้า web ของเรา โดยผ่าน CRUD operations ต่างๆ

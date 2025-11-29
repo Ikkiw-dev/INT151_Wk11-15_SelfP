@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API Extensions</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        background: radial-gradient(circle at top, #1f2933, #020617);
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen text-gray-200 flex items-center justify-center p-6">
+    <div
+      class="w-full max-w-3xl bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/10"
+    >
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1
+          class="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+        >
+          Fetch API Extensions
+        </h1>
+        <h3 class="mt-2 text-gray-400 text-sm">
+          Part of INT151 Basic FrontEnd Development – Self Practice
+        </h3>
+      </div>
+
+      <!-- Buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <button
+          id="getText"
+          class="px-4 py-2 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-lg font-semibold shadow-lg hover:scale-105 hover:brightness-110 transition"
+        >
+          Get Text
+        </button>
+
+        <button
+          id="getUsers"
+          class="px-4 py-2 bg-gradient-to-r from-sky-400 to-blue-500 rounded-lg font-semibold shadow-lg hover:scale-105 hover:brightness-110 transition"
+        >
+          Get Users
+        </button>
+
+        <button
+          id="getPosts"
+          class="px-4 py-2 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg font-semibold shadow-lg hover:scale-105 hover:brightness-110 transition"
+        >
+          Get API Data
+        </button>
+
+        <button
+        id="DeletePosts"
+        class="px-4 py-2 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg font-semibold shadow-lg hover:scale-105 hover:brightness-110 transition"
+      >
+        DeletePosts
+      </button>
+
+      <button
+          id="UpdatePosts"
+          class="px-4 py-2 bg-gradient-to-r from-sky-400 to-blue-500 rounded-lg font-semibold shadow-lg hover:scale-105 hover:brightness-110 transition"
+        >
+          Updateposts
+        </button>
+
+      </div>
+
+      <hr class="border-white/10 mb-6" />
+
+      <!-- Output -->
+      <div
+        id="output"
+        class="bg-black/30 rounded-lg p-4 min-h-[80px] text-sm overflow-auto mb-6 shadow-inner"
+      >
+        <span class="text-gray-400">Output will appear here...</span>
+      </div>
+
+      <!-- Form -->
+      <form id="addPost" class="space-y-4 mb-6">
+        <input
+          type="text"
+          id="title"
+          placeholder="Post title..."
+          class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/10 focus:ring-2 focus:ring-cyan-400 outline-none text-white placeholder-gray-400"
+        />
+
+        <textarea
+          id="body"
+          rows="4"
+          placeholder="Post body..."
+          class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/10 focus:ring-2 focus:ring-purple-400 outline-none text-white placeholder-gray-400"
+        ></textarea>
+
+        <input
+          type="submit"
+          value="Submit Post"
+          class="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:brightness-125 transition font-bold py-2 rounded-lg shadow-lg cursor-pointer"
+        />
+      </form>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
