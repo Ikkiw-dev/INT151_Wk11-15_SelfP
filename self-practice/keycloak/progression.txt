@@ -1,0 +1,11 @@
+self practice : keycloak migration
+
+หลักๆ ของ self practice นี้ คือการได้เรียนรู้ technical spike ของ Integrated Project ในฝั่งของ frontend ที่จะต้องมีการทำ multipage แต่ระหว่างทาง ต้องมีการ
+ใช้ external services เพื่อทำการ authentication อย่าง keycloak เพื่อ login ก่อน
+
+ผมเห็น่วาเป็นประโยชน์ และนับเป็นส่วนนึงของการ practice ใน frontend ได้ครับ
+
+โดยได้เรียนรู้เรื่องของการ config keycloak จาก config ที่อาจารย์มีมาให้ และได้ลอง build หน้า web ขึ้นมาใหม่เพื่อลองทำส่วนนี้
+โดยได้มีการเขียนเรื่องของการ block การเข้าถึง หากยังไม่ได้ login ผ่าน keycloak อีกด้วย
+
+และได้เรียนรู้การ set endpoints ไว้แบบ static เพื่อกันการ run ในครั้งต่อๆไป ที่อาจจะมีผลเรื่อง port เปลี่ยนแปลง เลยได้เรียนรู้วิธีการ set แบบ static ไว้

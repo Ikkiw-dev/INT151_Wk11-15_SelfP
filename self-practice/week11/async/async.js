@@ -5,7 +5,7 @@ function dosomething(hasProb) {
 }
 
 //Manipulate function
-//1 .then()
+// 1 .then()
 // console.log("starting...")
 // dosomething(true).then((workstate) => {
 //     console.log(workstate)

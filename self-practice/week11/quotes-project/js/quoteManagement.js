@@ -1,6 +1,6 @@
-//CRUD on quotes
-import { getItems, deleteItem, addItem, editItem } from "./myLib/fetchUtils.js"
+import { getItems, deleteItem, addItem } from "./myLib/fetchUtils.js"
 const quoteURL = `${import.meta.env.VITE_APP_URL}/quotes`
+
 //GET Quotes
 async function loadQuotes() {
   try {

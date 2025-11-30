@@ -1,0 +1,7 @@
+self-practice : Tailwindcss (part of FE Integrated project)
+
+หลักๆ ของครั้งนี้ หลังจากที่ได้ลองทำ frontEnd ใน Integrated บางส่วน แล้วพบว่า CSS แบบ pure มีการเขียนที่ยากต่อการทำความเข้าใจ และ ไม่ flexible สำหรับ
+แต่ละ element เลยได้ทำการเรียนรู้เพิ่มเติมเกี่ยวกับการใช้ tailwindcss เพื่อยกระดับ project ให้ดีมากขึ้น
+
+โดยได้เรียนรู้ตั้งแต่เรื่องพื้นฐานอย่างการใช้ background colors ไปจนถึงการทำ layout ต่างๆ ให้กับหน้า website
+เพื่อทำให้ project มีความสมบูรณ์มากขึ้น

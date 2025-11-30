@@ -1,0 +1,54 @@
+self practice : time & datetime
+
+จากการทำ self-practice ครั้งนี้ โดยหลักๆ ได้เรียนรู้เกี่ยวกับเรื่อง Date & Time ที่มีการใช้งานใน JavaScript
+โดยเริ่มต้นจากการสร้าง date object เพื่อแสดงวันที่เวลาในปัจจุบัน ผ่านการใช้ new Date()
+
+มีรูปแบบอ้างอิงเป็น standard คือ YYYY-MM-DDTHH:mm:ss.sssZ
+โดยที่    YYYY เป็น ปี 4 หลัก, MM เดือน (01-12), DD วัน (01-31), T เป็นตัวคั่นระหว่าง date และ time
+        HH เป็นหน่วยชั่วโมง (24), mm นาที, ss วินาที, .sss เสี้ยววินาที และ Z เป็น optional UTC  ที่ indicate วันที่ + เวลา ตาม standard สากล
+
+ในเรื่องของ การรับ input parameter ของ date ได้เรียนรู้เรื่องดังต่อไปนี้
+    1. การรับ input parameter ของ datetime กรณีไม่ใส่อะไรเลย เช่น const today1 = new Date() ก็จะได้ผลที่แสดงเวลา วันที่ปัจจุบัน เช่น 2025-11-27T06:24:57.982Z เป็นต้น (เป็นมาตรฐาน UTC ต้องเอามา +7)
+    2. input parameter ที่รับ number of millisecond -> (Date.now()) - return millisecond of current datetime เพราะ millisecond แทนจำนวน current datetime
+    3. input parameter - date string เช่น
+        const myDate1 = new Date('2025-05-02T17:15:35.100') //local datetime
+        console.log(myDate1) //2025-05-02T10:15:35.100Z แสดง UTC เวลาตามมาตรฐานสากล
+        const myDate2 = new Date("2025-05-02T17:15:35.100z") //มีการให้ date string ตามเวลามาตรฐานสากลแล้ว
+        console.log(myDate2) //2025-05-02T17:15:35.100Z
+    4. input parameter - year, monthsIndex (0-11), day, hh, mm, ss, ms เช่น
+        const myDate3 = new Date(2025, 1, 2, 18, 15, 0, 150) //ใส่ parameter รายตัว เวลาเป็น local Datetime ต้อง -7
+        console.log(myDate3) //2025-02-02T11:15:00.150Z
+
+ในเรื่องของ การจัด format datetime (ที่มีผลต่างกัน) ได้เรียนรู้เรื่องดังต่อไปนี้
+    1. toString() จะทำการแปลง Date object กลายเป็น string โดยที่จัด format หรือใส่ option อะไรไม่ได้
+        เช่น console.log(myDate3.toString()) //Sun Feb 02 2025 18:15:00 GMT+0700 (Indochina Time) ตาม timezone ของเครื่อง
+        Note : ใส่ option จัด format ใดๆไม่ได้ เพราะตามเครื่องเลย
+    2. toISOString() จัด format หรือใส่ option อะไรไม่ได้
+        เข่น console.log(myDate3.toISOString()) //2025-02-02T11:15:00.150Z (ต้องการทำเป็น UTC)
+    3. toLocaleString() ผูกกับ object นั้นไปเลย ทั้งนี้ ยังสามารถใส่ option ในการ display ขึ้นมาได้ด้วย
+        เช่น console.log(myDate3.toLocaleString('en-US', {
+    dateStyle: "medium",
+    timeStyle: "medium",
+})) 
+    // (Option : Long) February 2, 2025 at 6:15:00 PM GMT+7, (Option : Short) 2/2/25, 6:15 PM, (Option Medium) Feb 2, 2025, 6:15:00 PM
+
+    console.log(myDate3.toLocaleString('th-TH', { //ตามประเทศและภาษาที่ระบุ
+        dateStyle: "long",
+        timeStyle: "long",
+    })) //2 กุมภาพันธ์ 2568 เวลา 18 นาฬิกา 15 นาที 00 วินาที GMT+7
+
+    4. Intl.DateTimeFormat()
+        const formatter = Intl.DateTimeFormat('en-US', {
+            dateStyle: "short",
+            timeStyle: "short",
+            timeZone: "Asia/Bangkok"
+        }) //apply ได้กับหลาย Dateobject
+        // Pros. : เอา Option ไป reuse ได้หลายครั้ง กับหลาย date obejct (ต่างจาก tolocale ที่ใช้ได้แค่ครั้งเดียว กับ dateobject เดียว)
+    
+
+การเทียบเวลาใน JS
+    1. โดยการใช้ opreator ต่างๆ ได้แก่ <, >, <=, >= เพื่อแปลง date เป็น milliseconds ให้ automatic เพื่อเทียบค่าได้เร็วกว่า
+    2. การเทียบด้วย === ซึ่งจะไม่ได้ check วันที่หรือเวลา แต่จะเช็คว่า date ที่เป็น object เนี่ย เป็นต้วเดียวกันใน memory ไหม
+    3. การเทียบว่าตรงกันจริงไหม ผ่าน function : getTime() เพื่อแปลง date เป็น milliseconds แล้วเอาตัวเลขมาเทียบกันแทน โดยที่ต้องการเทียบว่าเวลาสองตัว ตรงกันจริง + ไม่สน reference และ สนเฉพาะค่าเวลา
+
+ได้เรียนรู้เรื่องการใช้ resolvedoptions() เพื่อจัดการกับ datetimeformat ของ system ณ ตอนนั้นด้วย

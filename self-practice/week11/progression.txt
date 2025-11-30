@@ -1,0 +1,53 @@
+WEEK 11 : Fetch API
+
+สำหรับ week นี้ ได้เรียนรู้เรื่อง FETCH API โดยได้เข้าใจเกี่ยวกับเนื้อหาดังต่อไปนี้
+
+1. Synchronous VS Asynchronous
+    - Synchronous : เป็น process ที่ งานจะถูกทำทีละงาน และงานถัดไปจะเริ่มได้เมื่องานก่อนหน้าเสร็จสมบูรณ์แล้ว
+    - Asynchronous : เป็นรูปแบบที่ให้งานหนึ่งทำงานควบคู่ไปกับงานเดิม โดยไม่ต้องรอให้งานนั้นเสร็จสิ้น
+    - Asynchronous function : คือ function ที่ต้องรอการทำงานหนึ่งเสร็จก่อน แล้วถึงจะทำอันนั้นขึ้นมา
+    ตัวอย่างเช่น settimeout()
+
+2. Promises
+    - Asynchronous ใช้เพื่อประมวลผลของ code จนกว่า Asynchronous จะ complete และ ทำงานต่อไปได่ โดยมี 3 status
+        pending : เป็น default สถานะเริ่มต้น ยังไม่สำเร็จหรือไม่สำเร็จ
+        fullfilled : การดำเนินการ complete
+        rejected : fail to process
+    - Promise Creation : ใช้  new keywords และ contains promise นั้น
+        เช่น console.log("starting...")
+            dosomething(true).then((workstate) => {
+            console.log(workstate)
+            console.log('ending...')
+            })
+            .catch((errorMessage) => {
+            console.log(errorMessage)
+            })
+    - จะมีการใช้งาน ก็คือ .then() ไว้สำหรับ value ที่ resolve แต่ถ้าเป็น .catch() ไว้สำหรับ value ที่เป็น rejected
+
+    - นอกจากการใช้ .then() ก็ยังมี async await เป็นทางเลือกได้ โดยที่ async() จะ return promise
+    - await ใช้ใน async function เท่านั้น เพื่อให้แน่ใจว่า Promise ทั้งหมดที่คืนค่ามาจะทำงานแบบ Synchronize
+    - await จะช่วยลดการใช้ callbacks ใน .then() และ .catch()
+
+3. REST API
+    - เป็นตัวจัดการ CRUD ผ่าน HTTP Request
+    - response ที่ตอบกลับมาจะเป็น JSON ซึ่งเป็น string ที่คล้ายกับ object
+    - components: request, response, headers
+    - ได้เรียนรู้เรื่องของ status code ที่จะตอบกลับมา จาก แต่ละ method ของ POST, GET, PUT, PATCH และ DELETE
+
+4. fetch()
+    - core structures : fetch(resource [, init]) โดยที่ resource อาจจะเป็น link จาก backend ที่ต้องการ เอา data มา
+    - init คือ object ที่กำหนดค่าของการ request (method ต่างๆ, headers และ body)
+    - ค่าที่ส่งกลับ จะเป็น promise ที่ resolved ไปยัง object ที่ response
+    - จะส่งคืน promise ที่ fullfilled ด้วย object response ซึ่งเป้นการ reponse มาจากฝั่ง server หรือ backend
+    - FETCH API จะส่งคืน เป็น HTTP Response (ไม่ใช่ JSON) เลยมีการใช้ .json() เพื่อแยก details ของ JSON ออกจาก response
+
+5. FETCH API with CRUD Operations
+    GET (Read): ดึงข้อมูล
+    POST (Create): เพิ่มข้อมูลใหม่ โดยต้องระบุ method: 'POST', headers: { 'Content-Type': 'application/json' }, และ body ที่แปลงเป็น JSON string ด้วย JSON.stringify()
+    DELETE: ลบรายการที่ระบุด้วย ID ใน URL และระบุ method: 'DELETE'
+    PUT (Update with Replace): อัปเดต/แทนที่รายการที่มีอยู่ทั้งหมด หรือสร้างรายการใหม่ถ้าไม่มี
+    PATCH (Update with Modify): อัปเดตรายการที่มีอยู่บางส่วน โดยไม่แก้ไข fields อื่น ๆ
+
+    โดยรูปแบบการเขียนที่แตกต่างกัน ของ async-await และ promise .then() โดย ข้อแตกต่าง หลักๆ คือการเขียน try() catch() ของ async() await() เพื่อลดการใช้ callbackfunction ต่างๆ
+
+และยังได้่ทดลองเขียน CRUD Operations ผ่าน Quote Project เพื่อทำให้มีความเข้าใจมากขึ้น และกลับมาทบทวนด้วย ทั้งนี้ ยังได้เรียนรู้ถึงวิธีการใช้ Vite เป็น building tools อีกด้วย
